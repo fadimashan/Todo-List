@@ -47,7 +47,7 @@ function deleteToDo(element) {
     var result = confirm("Are you sure to delete?");
     if (result) {
         itemsList.removeChild(element)
-    } 
+    }
 }
 
 
