@@ -6,7 +6,7 @@
 
 .container {
     margin-top: 5%;
-    max-width: 45%;
+    max-width: 60%;
 }
 
 #title {
@@ -33,6 +33,9 @@
 
     cursor: pointer;
 
+}
+#r1{
+    justify-content: center;
 }
 
 dl {

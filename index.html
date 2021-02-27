@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="get()">
 
     <div class="container">
         <div class="row">
@@ -19,19 +19,25 @@
                 <h1 id="title">Todo List</h1>
             </div>
         </div>
-        <div class="row">
+        <div class="row" id="r1">
+            <div class="col-sm-9">
             <div class="input-group mb-3">
-                <button class="btn btn-outline-secondary" type="button" onclick="add()" id="button-addon1">Add</button>
+                <button class="btn btn-outline-secondary" type="button"  onclick="add()" onclick="save()" id="button-addon1">Add</button>
                 <input id="input-item" type="text" class="form-control" placeholder=""
                     aria-label="Example text with button addon" aria-describedby="button-addon1">
+            </div>
+            </div>
+
+            <div class="col-sm-1">
+                <button class="btn btn-outline-primary" type="button"  onclick="reset()" id="btn-reset">Reset</button>
             </div>
         </div>
     </div>
     <div id="sec-row" class="row">
         <div class="col">
             <ul id="list-item">
-                <dl>Milk<span id="btn" class='todo-delete' value=clicks
-                        onclick='deleteToDo(this.parentElement)'>x</span></dl>
+                <!-- <dl>Milk<span id="btn" class='todo-delete' value=clicks
+                        onclick='deleteToDo(this.parentElement)'>x</span></dl> -->
             </ul>
         </div>
     </div>
