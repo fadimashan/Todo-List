@@ -9,9 +9,11 @@ function add() {
         var list = document.getElementsByTagName("dl");
         click(list);
         document.getElementById('input-item').value = ""
+
     } else {
         alert("Enter an item name!")
     }
+    save();
 }
 
 
@@ -58,3 +60,39 @@ input.addEventListener("keyup", function (event) {
         document.getElementById("button-addon1").click();
     }
 });
+
+
+var storedItems = localStorage.getItem("storedItems");
+
+function save() {
+    var list = document.getElementsByTagName("dl");
+    let savedList = [];
+    for (i = 0, len = list.length; i < len; i++) {
+        console.log(`this is the item list ${list[i].innerHTML}`);
+        savedList[i] = list[i].innerHTML;
+    }
+
+    localStorage.setItem("storedItems", savedList)
+
+}
+
+function get() {
+    if (storedItems !== null) {
+        var list = document.getElementsByTagName("dl");
+        let loadList = storedItems.split(",");
+        for (let i = 0; i < loadList.length; i++) {
+            let tag = document.createElement("dl");
+            tag.innerHTML = loadList[i]
+            itemsList.append(tag);
+            var list = document.getElementsByTagName("dl");
+            click(list);
+
+        }
+    }
+}
+
+function reset() {
+    
+    localStorage.clear();
+    window.location.reload();
+}
