@@ -63,7 +63,6 @@ input.addEventListener("keyup", function (event) {
 
 
 var storedItems = localStorage.getItem("storedItems");
-
 function save() {
     var list = document.getElementsByTagName("dl");
     let savedList = [];
@@ -92,7 +91,6 @@ function get() {
 }
 
 function reset() {
-    
     localStorage.clear();
     window.location.reload();
 }
