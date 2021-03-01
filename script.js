@@ -1,5 +1,9 @@
 const itemsList = document.getElementById('list-item');
 
+let styleDark = "list-group-item list-group-item-dark";
+let stylePrimary = "list-group-item list-group-item-primary";
+let styleGreen = "list-group-item list-group-item-success";
+
 function add() {
     let newItem = document.getElementById('input-item').value;
     let tag = document.createElement("dl");
@@ -30,17 +34,16 @@ click(list);
 function markSelection() {
     if (this.style.fontWeight !== "lighter") {
         this.style.fontWeight = "lighter";
-        this.style.backgroundColor = "#ccf3ff";
         this.style.textDecoration = "line-through";
-        this.style.color = "rgb(169, 169, 169)";
+        this.style.color = "red";
+        this.style.textShadow = "0px 0px 15px #ff0000";
 
     } else {
         this.style.fontWeight = "normal";
-        this.style.backgroundColor = "transparent";
         this.style.textDecoration = "none";
         this.style.textDecorationColor = "normal";
         this.style.color = "black";
-
+        this.style.textShadow = "none"
     }
 }
 
@@ -63,6 +66,7 @@ input.addEventListener("keyup", function (event) {
 
 
 var storedItems = localStorage.getItem("storedItems");
+
 function save() {
     var list = document.getElementsByTagName("dl");
     let savedList = [];
@@ -94,3 +98,9 @@ function reset() {
     localStorage.clear();
     window.location.reload();
 }
+
+var selectOption = 'list-group-item';
+$('#color-style').change(function () {
+    $('dl').removeClass(selectOption).addClass($(this).val());
+    selectOption += $(this).val();
+})
